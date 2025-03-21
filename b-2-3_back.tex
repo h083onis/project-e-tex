@@ -27,6 +27,7 @@
 	\caption{予測結果を保存するテーブル}
 	\label{tbl:prediction_table}
 	\small
+	\setlength{\tabcolsep}{4pt}
 	\doublerulesep=0.3pt
 	\begin{tabular}{l|l|l|l} \hline\hline\hline
 		カラム名 & データ型 & 制約 & 説明 \\ \hline
@@ -36,7 +37,8 @@
 		timestamp & DATETIME & DEFAULT  & スキャン時刻 \\
 		&&CURRENT\_TIME& \\
 		&&STAMP& \\ \hline
-		other\_data & JSON & NOT NULL & 位置情報，RSSIなど \\  \hline\hline\hline
+		other\_data & JSON & NOT NULL & 位置情報，\\
+		&&&RSSIなど \\ \hline\hline\hline
 	\end{tabular}
 \end{table}
 
@@ -55,16 +57,17 @@
 	
 \end{itemize}
 
-本システムで作成したAPIの概要について，表\ref{tbl:API}に示す．
+本システムで作成した2つのAPIの概要について，表\ref{tbl:API1}に示す．
 
 \begin{table}[tb]
 	\centering
-	\caption{作成したAPI}
-	\label{tbl:API}
+	\caption{APIの概要}
+	\label{tbl:API1}
 	\small
+	\setlength{\tabcolsep}{3pt}
 	\doublerulesep=0.3pt
-    \begin{tabular}{l|l|p{6cm}} \hline\hline\hline
-		API名 & 概要 & レスポンスの例 \\ \hline
+    \begin{tabular}{l|p{2.6cm}|p{2.6cm}} \hline\hline\hline
+		API名 & 目的 & レスポンスの例 \\ \hline
 		get\_prediction & 最新の予測結果を取得 & \{"prediction": 2.0, "timestamp": "Tue, 14 Jan 2025 23:11:50 GMT"\} \\ \hline
 		insert\_scanned\_data & スキャンデータをデータベースに保存 & \{"message": "Data inserted successfully"\} \\ \hline\hline\hline
 	\end{tabular}
