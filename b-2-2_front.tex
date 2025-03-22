@@ -1,1 +1,64 @@
 \subsection*{2. フロントエンドの工夫点}
+
+続いて，フロントエンドの工夫点について述べる．
+
+\subsubsection*{（1）Reactの採用}
+フロントエンド開発には，JavaScriptライブラリであるReactを採用した．Reactは，以下の点で本システムに適していると判断した．
+
+\begin{itemize}
+	\item コンポーネントベースのUI設計
+	
+	UIをコンポーネント単位で分割して開発することで，コードの再利用性が高まり，メンテナンス性も向上した．また，機能ごとに責務を分離することで，チーム開発における分業が容易になった．
+	
+	\item 宣言的なパラダイム
+	
+	手続き型のコードとは異なるシンプルな記述により，コードの可読性が向上した．状態の変化に応じてUIがどのように変化するべきかを宣言的に記述できるため，複雑なDOMの操作を直接行う必要がなくなった．
+	
+	\item 効率的なレンダリング
+	
+	仮想DOM（Virtual DOM）の採用により，ブラウザで表示するUIを効率的に（最低限の描画で）レンダリングすることが可能になった．これにより，アプリケーションのパフォーマンスが向上し，ユーザーエクスペリエンスが改善された．
+\end{itemize}
+
+\subsubsection*{（2）レスポンシブデザインの実装}
+本システムでは，様々なデバイスからのアクセスを想定し，ブラウザで表示するUIをレスポンシブデザインで設計した．これにより，デスクトップPCからスマートフォンまで，異なる画面サイズに対応したユーザーインターフェースを提供することが可能になった．
+
+図\ref{fig:responsive_design}に示すように，デバイスのサイズに応じてレイアウトが自動的に調整され，どのデバイスからもストレスなく操作できる環境を実現した．
+
+% ここに図を入れる場合
+% \begin{figure}[tb]
+%	\centering
+%	\includegraphics[width=0.8\linewidth]{responsive_design.png}
+%	\caption{レスポンシブデザインの例}
+%	\label{fig:responsive_design}
+% \end{figure}
+
+\subsubsection*{（3）動的なUI表現の実装}
+本システムでは，ユーザーエクスペリエンスを向上させるため，以下のような動的なUI表現を実装した．
+
+\begin{itemize}
+	\item 混雑度表示のアニメーション化
+	
+	システムが推定した混雑度を，単なる数値や静的なグラフィックではなく，動的なアニメーションで表現することで，より直感的に混雑状況を把握できるようにした．これにより，ユーザーは一目で現在の混雑状況を理解することが可能になった．
+	
+	\item 更新機能の簡素化
+	
+	更新ボタンを設計することにより，予測時刻の更新を簡素化した．ユーザーはボタン一つで最新の混雑情報を取得でき，操作の煩雑さを排除することで，ユーザーエクスペリエンスの向上を図った．
+	
+\end{itemize}
+
+表\ref{tbl:UI_components}に，主要なUIコンポーネントとその役割について示す．
+
+\begin{table}[tb]
+	\centering
+	\caption{主要なUIコンポーネント}
+	\label{tbl:UI_components}
+	\small
+	\doublerulesep=0.3pt
+	\begin{tabular}{l|p{9cm}} \hline\hline\hline
+		コンポーネント名 & 役割 \\ \hline
+		CongestionDisplay & 混雑度をアニメーションと数値で表示するコンポーネント \\ \hline
+		UpdateButton & 最新の予測データを取得するためのボタンコンポーネント \\ \hline
+		TimeStampDisplay & 予測時刻を表示するコンポーネント \\ \hline
+		ResponsiveContainer & 画面サイズに応じてレイアウトを調整するコンテナコンポーネント \\ \hline\hline\hline
+	\end{tabular}
+\end{table}
