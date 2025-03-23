@@ -11,10 +11,7 @@
 *.cb
 *.cb2
 .*.lb
-<<<<<<< HEAD
 main.pdf
-=======
->>>>>>> d17338fa736241848d1aa44a3719424bf408c6ba
 
 ## Intermediate documents:
 *.dvi
