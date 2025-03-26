@@ -8,8 +8,8 @@
     \centering
     \caption{デフォルトパラメータでのモデル評価結果}
     \label{tab:default_results}
-    \begin{tabular}{c|p{0.8cm}p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}p{0.8cm}}
-        \hline
+    \begin{tabular}{l|p{0.8cm}p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}p{0.8cm}}
+        \hline\hline\hline
         モデル & \multicolumn{3}{c|}{検証データ} & \multicolumn{3}{c}{テストデータ} \\
                & MSE & MAE & $R^2$ & MSE & MAE & $R^2$ \\
         \hline
@@ -18,7 +18,7 @@
         XGBR      & 547.63  & 15.01 & 0.944 & 618.45  & 15.21 & 0.937 \\
         LGBM      & 456.59  & 14.82 & 0.953 & 487.50  & 14.25 & 0.951 \\
         CatBoost  & 361.71  & 13.30 & 0.963 & 469.74  & 13.67 & 0.952 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
@@ -26,30 +26,30 @@
     \centering
     \caption{各モデルの最適パラメータ}
     \label{tab:best_params}
-    \begin{tabular}{c|c}
-        \hline
+    \begin{tabular}{l|c}
+        \hline\hline\hline
         モデル & 最適パラメータ \\
         \hline
-        SVR & $C=0.093 \\ 
-            & \epsilon=0.090\\
-            & \text{kernel}=\text{linear}$ \\
+        SVR & $C=0.093$ \\ 
+            & $\epsilon=0.090$\\
+            & $\text{kernel}=\text{linear}$ \\
         \hline
-        RandomForest & $\text{max\_depth}=10 \\
-                     & \text{min\_samples\_split}=2 \\
-                     & \text{n\_estimators}=4000$ \\
+        RandomForest & $\text{max\_depth}=10$ \\
+                     & $\text{min\_samples\_split}=2$ \\
+                     & $\text{n\_estimators}=4000$ \\
         \hline
-        XGBoost & $\text{learning\_rate}=0.082 \\
-                & \text{max\_depth}=3 \\
-                & \text{n\_estimators}=4000$ \\
+        XGBoost & $\text{learning\_rate}=0.082$ \\
+                & $\text{max\_depth}=3$ \\
+                & $\text{n\_estimators}=4000$ \\
         \hline
-        LGBM & $\text{learning\_rate}=0.010 \\ 
-             & \text{max\_leaves}=63 \\
-             & \text{n\_estimators}=5000$ \\
+        LGBM & $\text{learning\_rate}=0.010$ \\ 
+             & $\text{max\_leaves}=63$ \\
+             & $\text{n\_estimators}=5000$ \\
         \hline
-        CatBoost & $\text{learning\_rate}=0.050 \\
-                 & \text{max\_depth}=6 \\
-                 & \text{n\_estimators}=4000$ \\
-        \hline
+        CatBoost & $\text{learning\_rate}=0.050$ \\
+                 & $\text{max\_depth}=6$ \\
+                 & $\text{n\_estimators}=4000$ \\
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
@@ -57,8 +57,8 @@
     \centering
     \caption{パラメータ調整後のモデル評価結果}
     \label{tab:tuned_results}
-    \begin{tabular}{c|p{0.8cm}p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}p{0.8cm}}
-        \hline
+    \begin{tabular}{l|p{0.8cm}p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}p{0.8cm}}
+        \hline\hline\hline
         モデル & \multicolumn{3}{c|}{検証データ} & \multicolumn{3}{c}{テストデータ} \\
                & MSE & MAE & $R^2$ & MSE & MAE & $R^2$ \\
         \hline
@@ -67,7 +67,7 @@
         XGBR      & 357.44  & 13.35 & 0.963 & 529.44  & 14.51 & 0.946 \\
         LGBM      & 388.36  & 14.03 & 0.960 & 478.33  & 13.71 & 0.952 \\
         CatBoost  & 312.33  & 12.07 & 0.968 & 466.06  & 13.43 & 0.953 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
