@@ -67,14 +67,14 @@ param_ranges = {
     \centering
     \caption{計算サーバの本体仕様}
     \label{tab:server_specs}
-    \begin{tabular}{c|c}
-        \hline
+    \begin{tabular}{l|c}
+        \hline\hline\hline
         項目 & 仕様 \\
         \hline
         CPU  & AMD EPYC 7742 × 2（合計論理コア数 256） \\
         RAM  & 合計 2048GB（448GB × 5） \\
         GPU  & NVIDIA HGX A100 80GB × 5 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
@@ -83,11 +83,11 @@ param_ranges = {
     \caption{計算リソースの割り当て}
     \label{tab:resource_allocation}
     \begin{tabular}{c|c|c|c}
-        \hline
+        \hline\hline\hline
         CPU（相対ウェイト） & RAM & GPU & 共有メモリ \\
         \hline
         28コア，56スレッド/256 & 448GB & 80GB × 2 & 32GB  \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
@@ -95,8 +95,8 @@ param_ranges = {
     \centering
     \caption{使用ライブラリのバージョン一覧}
     \label{tab:versions}
-    \begin{tabular}{c|c}
-        \hline
+    \begin{tabular}{l|c}
+        \hline\hline\hline
         ライブラリ & バージョン \\
         \hline
         pandas & 2.2.1 \\
@@ -106,7 +106,7 @@ param_ranges = {
         xgboost & 2.1.2 \\
         lightgbm & 4.5.0 \\
         catboost & 1.2.7 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
