@@ -50,10 +50,10 @@ Rasberry Piの位置から近ければ近いほどRSSI値が大きくなる事�
 	\doublerulesep=0.3pt
     \begin{tabular}{l|p{5cm}} \hline\hline\hline
 		特徴量名 & 内容 \\ \hline
-		all\_num\_60\textsubscript{sec} & 過去 $T$ 秒間にスキャンされた、BD アドレスの総数\\ \hline
-    unique\_num\_60\textsubscript{sec} & 過去 $T$ 秒間にスキャンされた、BD アドレスのユニーク数 \\ \hline
-    unique\_ratio\_60\textsubscript{sec} & 過去 $T$ 秒間にスキャンされた、BD アドレスのうち、ユニークなデバイスの占める割合（ユニーク数 / 総数） \\ \hline
-    unique\_num\_60\textsubscript{sec}\_Sdb & 過去 $T$ 秒間にスキャンされた、BD アドレスのうち、RSSI が閾値 Sdb より大きいもののユニーク数 \\ \hline\hline\hline
+		all\_num\_60\textsubscript{sec} & 過去 $T$ 秒間にスキャンされた，BD アドレスの総数\\ \hline
+    unique\_num\_60\textsubscript{sec} & 過去 $T$ 秒間にスキャンされた，BD アドレスのユニーク数 \\ \hline
+    unique\_ratio\_60\textsubscript{sec} & 過去 $T$ 秒間にスキャンされた，BD アドレスのうち，ユニークなデバイスの占める割合（ユニーク数 / 総数） \\ \hline
+    unique\_num\_60\textsubscript{sec}\_Sdb & 過去 $T$ 秒間にスキャンされた，BD アドレスのうち，RSSI が閾値 Sdb より大きいもののユニーク数 \\ \hline\hline\hline
 	\end{tabular}
 \end{table}
 
@@ -63,28 +63,28 @@ Rasberry Piの位置から近ければ近いほどRSSI値が大きくなる事�
 本研究でモデルの性能評価に用いる指標について以下に述べる．
 
 \subsubsection*{平均二乗誤差（Mean Squared Error, MSE）}
-MSEは、予測値と実測値の差の二乗の平均を計算することにより、
-モデルの誤差を定量化する指標である。数式で表すと、以下のようになる。
+MSEは，予測値と実測値の差の二乗の平均を計算することにより，
+モデルの誤差を定量化する指標である．数式で表すと，以下のようになる．
 \begin{equation}
   \label{eq:mse}
   \mathrm{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
 \end{equation}
-ここで，$n$はサンプル数，$y_i$は実測値，$\hat{y}_i$は予測値である。
+ここで，$n$はサンプル数，$y_i$は実測値，$\hat{y}_i$は予測値である．
 
 \subsubsection*{平均絶対誤差（Mean Absolute Error, MAE）}
-MAEは、予測値と実測値の差の絶対値の平均を計算することにより、
-モデルの誤差を定量化する指標である。数式で表すと、以下のようになる。
+MAEは，予測値と実測値の差の絶対値の平均を計算することにより，
+モデルの誤差を定量化する指標である．数式で表すと，以下のようになる．
 \begin{equation}
   \label{eq:mae}
   \mathrm{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
 \end{equation}
-ここで，$n$はサンプル数，$y_i$は実測値，$\hat{y}_i$は予測値である。
+ここで，$n$はサンプル数，$y_i$は実測値，$\hat{y}_i$は予測値である．
 
 \subsubsection*{決定係数（Coefficient of Determination, $R^2$）}
-決定係数は、予測値が実測値をどの程度説明できるかを示す指標である。  
-数式で表すと、以下のようになる。
+決定係数は，予測値が実測値をどの程度説明できるかを示す指標である．  
+数式で表すと，以下のようになる．
 \begin{equation}
   \label{eq:r2}
   R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
 \end{equation}
-ここで，$n$はサンプル数，$y_i$は実測値，$\hat{y}_i$は予測値，$\bar{y}$は実測値の平均である。
+ここで，$n$はサンプル数，$y_i$は実測値，$\hat{y}_i$は予測値，$\bar{y}$は実測値の平均である．
