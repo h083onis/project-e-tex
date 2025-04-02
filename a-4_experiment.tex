@@ -11,9 +11,9 @@
 \begin{lstlisting}[style=mystyle, language=Python, caption=回帰モデルの定義, label={models}]
 models = {
     "SVR": SVR(),
-    "RandomForest": RandomForestRegressor(random_state=42),
-    "XGBoost": XGBRegressor(random_state=42),
-    "LightGBM": lgb.LGBMRegressor(random_state=42),
+    "RFR": RandomForestRegressor(random_state=42),
+    "XGBR": XGBRegressor(random_state=42),
+    "LGBM": lgb.LGBMRegressor(random_state=42),
     "CatBoost": CatBoostRegressor(random_seed=42, verbose=0)
 }
 \end{lstlisting}
@@ -34,17 +34,17 @@ param_ranges = {
         "epsilon": (0.001, 0.1, "log"),
         "kernel": ["linear", "poly", "rbf", "sigmoid"]
     },
-    "RandomForest": {
+    "RFR": {
         "n_estimators": range(500, 5001, 500),
         "max_depth": range(3, 11),
         "min_samples_split": range(2, 21)
     },
-    "XGBoost": {
+    "XGBR": {
         "n_estimators": range(500, 5001, 500),
         "max_depth": range(3, 11),
         "learning_rate": (0.001, 0.1, "log")
     },
-    "LightGBM": {
+    "LGBM": {
         "n_estimators": range(500, 5001, 500),
         "num_leaves": range(16, 257),
         "learning_rate": (0.001, 0.1, "log")
@@ -67,14 +67,14 @@ param_ranges = {
     \centering
     \caption{計算サーバの本体仕様}
     \label{tab:server_specs}
-    \begin{tabular}{l|c}
-        \hline\hline\hline
+    \begin{tabular}{l|p{0.8cm}}
+        \hline
         項目 & 仕様 \\
         \hline
         CPU  & AMD EPYC 7742 × 2（合計論理コア数 256） \\
         RAM  & 合計 2048GB（448GB × 5） \\
         GPU  & NVIDIA HGX A100 80GB × 5 \\
-        \hline\hline\hline
+        \hline
     \end{tabular}
 \end{table}
 
@@ -83,11 +83,11 @@ param_ranges = {
     \caption{計算リソースの割り当て}
     \label{tab:resource_allocation}
     \begin{tabular}{c|c|c|c}
-        \hline\hline\hline
+        \hline
         CPU（相対ウェイト） & RAM & GPU & 共有メモリ \\
         \hline
         28コア，56スレッド/256 & 448GB & 80GB × 2 & 32GB  \\
-        \hline\hline\hline
+        \hline
     \end{tabular}
 \end{table}
 
@@ -96,7 +96,7 @@ param_ranges = {
     \caption{使用ライブラリのバージョン一覧}
     \label{tab:versions}
     \begin{tabular}{l|c}
-        \hline\hline\hline
+        \hline
         ライブラリ & バージョン \\
         \hline
         pandas & 2.2.1 \\
@@ -106,7 +106,7 @@ param_ranges = {
         xgboost & 2.1.2 \\
         lightgbm & 4.5.0 \\
         catboost & 1.2.7 \\
-        \hline\hline\hline
+        \hline
     \end{tabular}
 \end{table}
 
