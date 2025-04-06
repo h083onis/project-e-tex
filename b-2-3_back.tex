@@ -3,12 +3,24 @@
 続いて，バックエンドの工夫点について述べる．
 
 \subsubsection*{（1）Flaskの採用}
-バックエンド開発には，Python の Web フレームワークである Flask を採用した．Flask は、以下の点で本システムに適していると判断した。
+バックエンド開発には，PythonのWebフレームワークであるFlaskを採用した．Flaskは、以下の点で本システムに適していると判断した。
 
 \begin{itemize}
 	\item シンプルで使いやすい
 	
-	シンプルで柔軟な設計により，少ないコードで API を構築できる．そのため，学習コストが低く，迅速なプロトタイプ作成や機能追加が可能となる．
+	シンプルで柔軟な設計により，少ないコードでAPIを構築できる．そのため，学習コストが低く，迅速なプロトタイプ作成や機能追加が可能となる．以下に，Flaskを用いた簡単なAPIの実装例を示す．この例では，ユーザーが``/data''にアクセスすると，JSON形式のデータを返すAPIとなっている．
+\begin{lstlisting}[style=mystyle, language=Python, caption=Flaskによる簡単なAPIの実装例]
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/data")
+def get_data():
+	return jsonify({"name":"Taro","age":25})
+
+if __name__ == "__main__":
+	app.run(debug=True)
+\end{lstlisting}
 	
 	\item 軽量
 	
@@ -16,7 +28,7 @@
 
 	\item フロントエンドとの連携が容易
 	 
-	フロントエンドで必要な　API　エンドポイントを迅速に構築でき，クライアントからのリクエストに柔軟に対応できる．また，JSON　形式のデータを簡単に送受信できるため，フロントエンドと異なるフレームワークを使用しても連携をスムーズに行える．
+	フロントエンドで必要なAPIエンドポイントを迅速に構築でき，ユーザーからのリクエストに柔軟に対応できる．また，JSON形式のデータを簡単に送受信できるため，フロントエンドと異なるフレームワークを使用しても連携をスムーズに行える．
 \end{itemize}
 
 \subsubsection*{（2）データベースの採用}
@@ -43,7 +55,7 @@
 \end{table}
 
 \subsubsection*{（3）機能のAPI化}
-本システムでは，バックエンド側で提供する機能を API として切り出し，フロントエンドとバックエンドの分離を図った．
+本システムでは，バックエンド側で提供する機能をAPIとして切り出し，フロントエンドとバックエンドの分離を図った．
 このアプローチにより，次のようなメリットが得られた．
 
 \begin{itemize}
@@ -57,7 +69,27 @@
 	
 \end{itemize}
 
-本システムで作成した2つのAPIの概要について，表\ref{tbl:API1}に示す．
+本システムで作成した 2 つのAPIの概要について，表\ref{tbl:API1}に示す．API\textcircled{1}のレスポンスの一例は以下の通りである．
+
+\begin{minipage}{.45\textwidth}
+	\begin{screen}
+		\ttfamily
+		\{"prediction":2.0, \newline"timestamp":"Tue, 14 Jan 2025 11:11:50 GMT"\}
+	\end{screen}			
+\end{minipage}
+
+これは，2025 年 1 月 14 日火曜日 11 時 11分 50 秒の混雑度の予測結果が 2.0 であることを示している．
+
+また，API\textcircled{2}のレスポンスの一例は以下の通りである．
+
+\begin{minipage}{.45\textwidth}
+	\begin{screen}
+		\ttfamily
+		\{"message":"Data inserted successfully"\}
+	\end{screen}			
+\end{minipage}
+
+これは，スキャンデータが正常にデータベースへ保存されたことを示している．
 
 \begin{table}[tb]
 	\centering
@@ -66,9 +98,9 @@
 	\small
 	\setlength{\tabcolsep}{3pt}
 	\doublerulesep=0.3pt
-    \begin{tabular}{l|p{2.6cm}|p{2.6cm}} \hline\hline\hline
-		API名 & 目的 & レスポンスの例 \\ \hline
-		get\_prediction & 最新の予測結果を取得 & \{"prediction": 2.0, "timestamp": "Tue, 14 Jan 2025 23:11:50 GMT"\} \\ \hline
-		insert\_scanned\_data & スキャンデータをデータベースに保存 & \{"message": "Data inserted successfully"\} \\ \hline\hline\hline
+    \begin{tabular}{l|p{2.6cm}|p{4.1cm}} \hline\hline\hline
+		　& 名前 & 目的 \\ \hline
+		API\textcircled{1} & get\_prediction & 最新の予測結果を取得 \\ \hline
+		API\textcircled{2} & insert\_scanned\_data & スキャンデータをデータベースに保存　\\ \hline\hline\hline
 	\end{tabular}
 \end{table}
