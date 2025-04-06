@@ -6,10 +6,11 @@
 本項では，5種類の回帰モデル（SVR, RFR, XGBR, LGBM, CatBoost）に対する性能評価結果を示す．まず，各モデルにおけるデフォルトのパラメータでの実験結果を表\ref{tab:default_results}に示す．次に，Optuna を用いて調整した各モデルの最適なハイパーパラメータを表\ref{tab:best_params}に示す．最後に，パラメータ調整後の各モデルの性能を表\ref{tab:tuned_results}に示す．
 \begin{table}[htbp]
     \centering
+    \doublerulesep=0.3pt
     \caption{デフォルトパラメータでのモデル評価結果}
     \label{tab:default_results}
     \begin{tabular}{l|p{0.8cm}p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}p{0.8cm}}
-        \hline
+        \hline\hline\hline
         モデル & \multicolumn{3}{c|}{検証データ} & \multicolumn{3}{c}{テストデータ} \\
                & MSE & MAE & $R^2$ & MSE & MAE & $R^2$ \\
         \hline
@@ -18,16 +19,17 @@
         XGBR      & 547.63  & 15.01 & 0.944 & 618.45  & 15.21 & 0.937 \\
         LGBM      & 456.59  & 14.82 & 0.953 & 487.50  & 14.25 & 0.951 \\
         CatBoost  & 361.71  & 13.30 & 0.963 & 469.74  & 13.67 & 0.952 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
 \begin{table}[htbp]
     \centering
+    \doublerulesep=0.3pt
     \caption{各モデルの最適パラメータ}
     \label{tab:best_params}
     \begin{tabular}{l|c}
-        \hline
+        \hline\hline\hline
         モデル & 最適パラメータ \\
         \hline
         SVR & $C=0.093$ \\ 
@@ -49,16 +51,17 @@
         CatBoost & $\text{learning\_rate}=0.050$ \\
                  & $\text{max\_depth}=6$ \\
                  & $\text{n\_estimators}=4000$ \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
 \begin{table}[htbp]
     \centering
+    \doublerulesep=0.3pt
     \caption{パラメータ調整後のモデル評価結果}
     \label{tab:tuned_results}
     \begin{tabular}{l|p{0.8cm}p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}p{0.8cm}}
-        \hline
+        \hline\hline\hline
         モデル & \multicolumn{3}{c|}{検証データ} & \multicolumn{3}{c}{テストデータ} \\
                & MSE & MAE & $R^2$ & MSE & MAE & $R^2$ \\
         \hline
@@ -67,7 +70,7 @@
         XGBR      & 357.44  & 13.35 & 0.963 & 529.44  & 14.51 & 0.946 \\
         LGBM      & 388.36  & 14.03 & 0.960 & 478.33  & 13.71 & 0.952 \\
         CatBoost  & 312.33  & 12.07 & 0.968 & 466.06  & 13.43 & 0.953 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
