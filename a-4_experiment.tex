@@ -65,38 +65,41 @@ param_ranges = {
 本節では，モデルの学習および評価で使用した計算機環境およびライブラリのバージョンについて説明する．ハードウェアの仕様を表\ref{tab:server_specs}，リソースの割り当てを表\ref{tab:resource_allocation}に示す．また，本研究で使用したライブラリのバージョンを表\ref{tab:versions}に示す．本実験ではPython 3.10.13を使用した．
 \begin{table}[htbp]
     \centering
+    \doublerulesep=0.3pt
     \caption{計算サーバの本体仕様}
     \label{tab:server_specs}
-    \begin{tabular}{l|p{0.8cm}}
-        \hline
+    \begin{tabular}{l|c}
+        \hline\hline\hline
         項目 & 仕様 \\
         \hline
         CPU  & AMD EPYC 7742 × 2（合計論理コア数 256） \\
         RAM  & 合計 2048GB（448GB × 5） \\
         GPU  & NVIDIA HGX A100 80GB × 5 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
 \begin{table}[htbp]
     \centering
+    \doublerulesep=0.3pt
     \caption{計算リソースの割り当て}
     \label{tab:resource_allocation}
     \begin{tabular}{c|c|c|c}
-        \hline
+        \hline\hline\hline
         CPU（相対ウェイト） & RAM & GPU & 共有メモリ \\
         \hline
         28コア，56スレッド/256 & 448GB & 80GB × 2 & 32GB  \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
 \begin{table}[htbp]
     \centering
+    \doublerulesep=0.3pt
     \caption{使用ライブラリのバージョン一覧}
     \label{tab:versions}
     \begin{tabular}{l|c}
-        \hline
+        \hline\hline\hline
         ライブラリ & バージョン \\
         \hline
         pandas & 2.2.1 \\
@@ -106,7 +109,7 @@ param_ranges = {
         xgboost & 2.1.2 \\
         lightgbm & 4.5.0 \\
         catboost & 1.2.7 \\
-        \hline
+        \hline\hline\hline
     \end{tabular}
 \end{table}
 
