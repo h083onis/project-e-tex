@@ -10,7 +10,7 @@
 	
 	UIをコンポーネント単位で分割して開発することで，コードの再利用性が高まり，メンテナンス性も向上した．また，機能ごとに責務を分離することで，チーム開発における分業が容易になった．
 	
-	\item 宣言的なパラダイム
+	\item 直感的なUI記述方式
 	
 	手続き型のコードとは異なるシンプルな記述により，コードの可読性が向上した．状態の変化に応じてUIがどのように変化するべきかを宣言的に記述できるため，複雑なDOMの操作を直接行う必要がなくなった．
 	
@@ -75,20 +75,37 @@
 	async/await構文を用いて非同期処理を実装し，データ取得中のエラーハンドリングも考慮した実装を行った．これにより，ネットワーク状況が不安定な環境でも堅牢に動作するUIを実現した．
 \end{itemize}
 
-表\ref{tbl:UI_components}に，主要なUI要素とその役割について示す．
-
 \begin{table}[tb]
 	\centering
 	\caption{主要なUI要素}
 	\label{tbl:UI_components}
 	\small
+	\setlength{\tabcolsep}{4pt}
 	\doublerulesep=0.3pt
-	\begin{tabular}{l|p{9cm}} \hline\hline\hline
+	\begin{tabular}{l|p{5cm}} \hline\hline\hline
 		UI要素 & 役割 \\ \hline
-		ProgressRing & 混雑度をSVG円形プログレスバーでアニメーション表示 \\ \hline
-		GroupIcon & 人物アイコンを使った混雑状況の視覚的表現 \\ \hline
-		StatusBox & 混雑度、混雑状況、予測人数を表示するボックス \\ \hline
-		UpdateButton & 最新の予測データを取得するためのアニメーション付きボタン \\ \hline
-		ResponsiveElements & windowWidth状態を使用した画面サイズに応じたレイアウト調整 \\ \hline\hline\hline
+		ProgressRing & 混雑度をSVG円形プログレスバーで\\
+		&アニメーション表示 \\ \hline
+		GroupIcon & 人物アイコンを使った混雑状況の\\
+		&視覚的表現 \\ \hline
+		StatusBox & 混雑度、混雑状況、予測人数を\\
+		&表示するボックス \\ \hline
+		UpdateButton & 最新の予測データを取得するための\\
+		&アニメーション付きボタン \\ \hline
+		ResponsiveElements & windowWidth状態を使用した画面\\
+		&サイズに応じたレイアウト調整 \\ \hline\hline\hline
 	\end{tabular}
 \end{table}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/webapp_screenshot.png}
+	\caption{開発したWebアプリケーションの画面}
+	\label{fig:webapp_screenshot}
+\end{figure}
+
+表\ref{tbl:UI_components}に，主要なUI要素とその役割，図\ref{fig:webapp_screenshot}に本システムのWebアプリケーション画面をそれぞれ示す．画面中央には混雑度を視覚的に表現するProgressRingコンポーネントを配置し，現在の混雑状況を円形プログレスバーと数値で直感的に把握できるようにしている．また，人物アイコン（GroupIcon）の色彩変化により，混雑度の程度を視覚的に表現している．
+
+StatusBoxコンポーネントでは具体的な混雑状況の説明と予測人数を表示し，ユーザーに詳細情報を提供している．画面右上のUpdateButtonを押すことで，最新の予測データを取得できる仕組みとなっており，回転アニメーションによって更新中であることを示す視覚的フィードバックも実装している．
+
+さらに，ResponsiveElementsの実装により，様々な画面サイズに対応したレイアウト調整が行われ，デスクトップからモバイルまで一貫したユーザーエクスペリエンスを提供している．これらのUI要素が連携することで，混雑状況を簡潔かつ分かりやすく伝えるインターフェースを実現した．
