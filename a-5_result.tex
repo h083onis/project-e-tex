@@ -1,10 +1,12 @@
 \section*{A-6. 結果}
-本章では，モデル予測についての結果を述べる．
+本章では，モデル予測の評価結果について述べる．
 
 \subsection*{6.1 モデル性能に関する結果}
-本節では，5種類の回帰モデル（SVR, RFR, XGBR, LGBM, CatBoost）に対する性能評価結果を示す．まず，各モデルにおけるデフォルトのパラメータでの実験結果を表\ref{tab:default_results}に示す．次に，Optuna を用いて調整した各モデルの最適なハイパーパラメータを表\ref{tab:best_params}に示す．最後に，パラメータ調整後の各モデルの性能を表\ref{tab:tuned_results}に示す．
+本節では，5種類の回帰モデル（SVR, RFR, XGBR, LGBM, CatBoost）に対する性能評価結果を示す．まず，各モデルにおけるデフォルトのパラメータでの性能評価結果を表\ref{tab:default_results}に示す．
+次に，Optuna を用いて調整した各モデルの最適なハイパーパラメータを表\ref{tab:best_params}に示す．最後に，パラメータ調整後の各モデルの性能評価結果を表\ref{tab:tuned_results}に示す．
+表\ref{tab:default_results}および表\ref{tab:tuned_results}では，各モデルを比較し，最小のMSE とMAE，最大の$R^2$の値を太字で示す．
 
-\begin{table}[htbp]
+\begin{table}[tb]
     \centering
     \doublerulesep=0.3pt
     \caption{デフォルトパラメータでのモデル評価結果}
@@ -18,12 +20,12 @@
         RFR       & 525.61  & 15.79 & 0.946 & 550.68  & 15.50 & 0.944 \\
         XGBR      & 547.63  & 15.01 & 0.944 & 618.45  & 15.21 & 0.937 \\
         LGBM      & 456.59  & 14.82 & 0.953 & 487.50  & 14.25 & 0.951 \\
-        CatBoost  & 361.71  & 13.30 & 0.963 & 469.74  & 13.67 & 0.952 \\
+        CatBoost  & \textbf{361.71}  & \textbf{13.30} & \textbf{0.963} & \textbf{469.74}  & \textbf{13.67} & \textbf{0.952} \\
         \hline\hline\hline
     \end{tabular}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[tb]
     \centering
     \doublerulesep=0.3pt
     \caption{各モデルの最適パラメータ}
@@ -55,7 +57,7 @@
     \end{tabular}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[tb]
     \centering
     \doublerulesep=0.3pt
     \caption{パラメータ調整後のモデル評価結果}
@@ -69,18 +71,18 @@
         RFR       & 517.24  & 15.84 & 0.947 & 559.44  & 15.66 & 0.943 \\
         XGBR      & 357.44  & 13.35 & 0.963 & 529.44  & 14.51 & 0.946 \\
         LGBM      & 388.36  & 14.03 & 0.960 & 478.33  & 13.71 & 0.952 \\
-        CatBoost  & 312.33  & 12.07 & 0.968 & 466.06  & 13.43 & 0.953 \\
+        CatBoost  & \textbf{312.33}  & \textbf{12.07} & \textbf{0.968} & \textbf{466.06}  & \textbf{13.43} & \textbf{0.953} \\
         \hline\hline\hline
     \end{tabular}
 \end{table}
 
 表\ref{tab:default_results}の結果より，デフォルトのパラメータ設定ではテストデータに対してCatBoostが最も高い$R^2$（0.952）を示し，最も低いMSEおよびMAEを記録した．SVRは$R^2$が0.585と低く，他の手法と比較して精度が劣ることが分かった．XGBoost，LightGBM，RandomForestは$R^2$が0.93以上を達成し，いずれも高い精度を示したが，CatBoostには及ばなかった．
 
-表\ref{tab:tuned_results}の結果より，Optunaによるハイパーパラメータの調整後，全モデルにおいて$R^2$が向上した．SVRは$R^2$が0.893まで改善し，MSEおよびMAEも大幅に低下した．XGBoostとLightGBMは検証データに対する$R^2$がそれぞれ0.963および0.960に向上し，CatBoostは$R^2$が0.968となった．テストデータに対する$R^2$は，調整後のCatBoostが0.953と最も高く，MSEおよびMAEも最も低かった．XGBoostは$R^2$が0.937から0.946へ向上し，LightGBMは0.001ポイント向上した．RandomForestは，$R^2$が0.944から0.943とわずかに低下したが，安定した性能を示した．
+表\ref{tab:tuned_results}の結果より，Optunaによるハイパーパラメータの調整後，全モデルにおいて$R^2$が向上した．SVRは$R^2$が0.893まで改善し，MSEおよびMAEも大幅に低下した．XGBoostとLightGBMは検証データに対する$R^2$がそれぞれ0.963および0.960に向上し，CatBoostは$R^2$が0.968となった．テストデータに対する$R^2$は，調整後のCatBoostが0.953と最も高く，MSEおよびMAEも最も低かった．XGBoostは$R^2$が0.009ポイント向上し，LightGBMは0.001ポイント向上した．RandomForestは，$R^2$が0.944から0.943とわずかに低下したが，安定した性能を示した．
 
 \subsection*{6.2 特徴量重要度の分析}
 本研究では，最も高い性能を示したCatBoostについて，特徴量の重要度を分析した．特徴量の重要度は，ハイパーパラメータ調整後のCatBoostモデルを用いて算出した．その結果を図\ref{fig:feature_importance} に示す．
-\begin{figure}[htbp]
+\begin{figure}[tb]
     \centering
     \includegraphics[width=1.0\linewidth]{./fig/feature_importance.pdf}
     \caption{CatBoost における特徴量重要度}
