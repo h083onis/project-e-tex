@@ -2,12 +2,11 @@
 
 続いて，バックエンドの工夫点について述べる．
 
-\subsubsection*{（1）Flaskの採用}
+\subsubsection*{3.1 Flaskの採用}
 バックエンド開発には，PythonのWebフレームワークであるFlaskを採用した．Flaskは，以下の点で本システムに適していると判断した。
 
-\begin{itemize}
-	\item シンプルで使いやすい
-	
+\begin{enumerate}
+	\item {\bfseries シンプルで使いやすい}\\	
 	シンプルで柔軟な設計により，少ないコードでAPIを構築できる．そのため，学習コストが低く，迅速なプロトタイプ作成や機能追加が可能となる．以下に，Flaskを用いた簡単なAPIの実装例を示す．この例では，ユーザーが``/data''にアクセスすると，JSON形式のデータを返すAPIとなっている．
 \begin{lstlisting}[style=mystyle, language=Python, caption=Flaskによる簡単なAPIの実装例]
 from flask import Flask, jsonify
@@ -22,16 +21,14 @@ if __name__ == "__main__":
 	app.run(debug=True)
 \end{lstlisting}
 	
-	\item 軽量
-	
+	\item {\bfseries 軽量}\\
 	必要最低限の機能のみ提供するため，動作が軽い．そのため，小規模なアプリケーション開発に適しており，リソースの限られた環境でも利用しやすい．
 
-	\item フロントエンドとの連携が容易
-	 
+	\item {\bfseries フロントエンドとの連携が容易}\\	 
 	フロントエンドで必要なAPIエンドポイントを迅速に構築でき，ユーザーからのリクエストに柔軟に対応できる．また，JSON形式のデータを簡単に送受信できるため，フロントエンドと異なるフレームワークを使用しても連携をスムーズに行える．
-\end{itemize}
+\end{enumerate}
 
-\subsubsection*{（2）データベースの採用}
+\subsubsection*{3.2 データベースの採用}
 本システムでは，モデルによる予測結果の保存方法として，データベース設計を採用した．これにより，拡張性や永続性を確保し，今後の機能追加やデータ増加に柔軟に対応できる設計を実現した．表\ref{tbl:prediction_table}に示すように，予測結果は適切なスキーマ設計を通じて格納され，データの整合性を保ちながら，将来的な拡張にも対応可能な構成としている．
 
 \begin{table}[tb]
@@ -54,20 +51,20 @@ if __name__ == "__main__":
 	\end{tabular}
 \end{table}
 
-\subsubsection*{（3）機能のAPI化}
+\subsubsection*{3.3 機能のAPI化}
 本システムでは，バックエンド側で提供する機能をAPIとして切り出し，フロントエンドとバックエンドの分離を図った．
 このアプローチにより，次のようなメリットが得られた．
 
-\begin{itemize}
-	\item フロントエンドとバックエンドの独立性の向上
+\begin{enumerate}
+	\item {\bfseries フロントエンドとバックエンドの独立性の向上}
 	
 	フロントエンドとバックエンドがAPIを通じて通信する構造にすることで，フロントエンド側の実装に依存せずにバックエンドの開発が可能になった．
 	
-	\item 再利用性の向上
+	\item {\bfseries 再利用性の向上}
 	 
 	各機能がAPIとして分離されることで，その機能を他のシステムやサービスで再利用することが容易になった．
 	
-\end{itemize}
+\end{enumerate}
 
 本システムで作成した 2 つのAPIの概要について，表\ref{tbl:API1}に示す．API\textcircled{1}のレスポンスの一例は以下の通りである．
 
